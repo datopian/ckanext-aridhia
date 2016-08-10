@@ -2,8 +2,50 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
 
-class AridhiaPlugin(plugins.SingletonPlugin):
+class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IDatasetForm, inherit=True)
+
+    # IDatasetForm
+    
+    def create_package_schema(self):
+        schema = super(AridhiaPlugin, self).create_package_schema()
+        
+        schema.update({
+            'deeplink': [toolkit.get_validator('ignore_missing'),
+                         toolkit.get_converter('convert_to_extras')]
+        })
+        return schema
+
+    def update_package_schema(self):
+        
+        schema = super(AridhiaPlugin, self).update_package_schema()
+        schema.update({
+            'deeplink': [toolkit.get_validator('ignore_missing'),
+                         toolkit.get_converter('convert_to_extras')]
+        })
+        
+        return schema
+
+    def show_package_schema(self):
+        
+        schema = super(AridhiaPlugin, self).show_package_schema()
+        schema.update({
+            'deeplink': [toolkit.get_converter('convert_from_extras'),
+                         toolkit.get_validator('ignore_missing')]
+        })
+        
+        return schema
+
+    def is_fallback(self):
+        # Return True to register this plugin as the default handler for
+        # package types not handled by any other IDatasetForm plugin.
+        return True
+
+    def package_types(self):
+        # This plugin doesn't handle any special package types, it just
+        # registers itself as the default (above).
+        return []
 
     # IConfigurer
 

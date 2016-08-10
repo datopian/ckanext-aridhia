@@ -1,7 +1,11 @@
 {% ckan_extends %}
 
 {% block secondary_help_content %}
-
-<h1> Custom content in the sidebar </h1>
-
+<div class="module-content">
+<h1 class="heading">DeepLink</h1>
+<a href="{{pkg.deeplink}}" class="btn btn-success">
+  <i class="icon-plus-sign"></i>
+  Open
+</a>
+</div>
 {% endblock %}
