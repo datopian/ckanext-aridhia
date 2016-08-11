@@ -1,0 +1,6 @@
+{% ckan_extends %}
+
+  {% block dataset_fields %}
+  {{super()}}
+    {{ form.input('deeplink', label=_('Deep Link'), id='deeplink', placeholder=_('https://www.deeplink.com'), value=data.deeplink, error=errors.deeplink, classes=['control-medium']) }}
+  {% endblock %}
