@@ -4,35 +4,70 @@ import ckan.plugins.toolkit as toolkit
 
 class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IDatasetForm, inherit=True)
+    
+    # IPackageController
+    
+    def after_show(self, context, pkg_dict):
+        
+        pkg_dict.update({'identifier': pkg_dict.get('id')})
+        return pkg_dict
+        
+    def before_view(self, pkg_dict):
+        
+        pkg_dict.update({'identifier': pkg_dict.get('id')})
+        return pkg_dict
+    
 
     # IDatasetForm
     
     def create_package_schema(self):
         schema = super(AridhiaPlugin, self).create_package_schema()
+        defaults = [toolkit.get_validator('ignore_missing'),
+                    toolkit.get_converter('convert_to_extras')]
         
         schema.update({
-            'deeplink': [toolkit.get_validator('ignore_missing'),
-                         toolkit.get_converter('convert_to_extras')]
+            'deeplink': defaults,
+            'number_of_participants':defaults,
+            'human_research':defaults,
+            'number_of_records': defaults,
+            'spatial_coverage': defaults,
+            'temporal_coverage': defaults,
+            'logo': defaults
         })
         return schema
 
     def update_package_schema(self):
-        
         schema = super(AridhiaPlugin, self).update_package_schema()
-        schema.update({
-            'deeplink': [toolkit.get_validator('ignore_missing'),
-                         toolkit.get_converter('convert_to_extras')]
-        })
+        defaults = [toolkit.get_validator('ignore_missing'),
+                    toolkit.get_converter('convert_to_extras')]
         
+        schema.update({
+            'deeplink': defaults,
+            'number_of_participants':defaults,
+            'human_research':defaults,
+            'number_of_records': defaults,
+            'spatial_coverage': defaults,
+            'temporal_coverage': defaults,
+            'logo': defaults
+        })
         return schema
 
     def show_package_schema(self):
         
         schema = super(AridhiaPlugin, self).show_package_schema()
+        defaults = [toolkit.get_converter('convert_from_extras'),
+                    toolkit.get_validator('ignore_missing')]
+        
         schema.update({
-            'deeplink': [toolkit.get_converter('convert_from_extras'),
-                         toolkit.get_validator('ignore_missing')]
+            'deeplink': defaults,
+            'number_of_participants':defaults,
+            'human_research':defaults,
+            'number_of_records': defaults,
+            'spatial_coverage': defaults,
+            'temporal_coverage': defaults,
+            'logo': defaults
         })
         
         return schema
