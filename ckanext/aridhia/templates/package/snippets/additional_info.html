@@ -41,7 +41,14 @@
   <tr>
     <th scope="row" class="dataset-label">{{ _("Temporal Coverage") }}</th>
     <td class="dataset-details">
-        {{pkg_dict.temporal_coverage}}
+        {{pkg_dict.tc_start}} - {{pkg_dict.tc_end}}
+    </td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Language") }}</th>
+    <td class="dataset-details">
+        {{pkg_dict.language}}
     </td>
   </tr>
 

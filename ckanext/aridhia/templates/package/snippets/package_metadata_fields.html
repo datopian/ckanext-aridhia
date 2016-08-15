@@ -23,8 +23,6 @@
   {% endblock %}
 
   {% block dataset_fields %}
-	{{ form.input('deeplink', label=_('Deep Link'), id='deeplink', placeholder=_('https://www.deeplink.com'), value=data.deeplink, error=errors.deeplink, classes=['control-medium']) }}
-
 	{{ form.input('number_of_participants', label=_('Number of participants'), id='number_of_participants', placeholder=_('0'), value=data.number_of_participants, error=errors.number_of_participants, classes=['control-medium']) }}
 
 	{{ form.input('number_of_records', label=_('Number of Records'), id='number_of_records', placeholder=_('0'), value=data.number_of_records, error=errors.number_of_records, classes=['control-medium']) }}
@@ -33,8 +31,14 @@
 
 	{{ form.markdown('spatial_coverage', label=_('Spatial Coverage'), id='spatial_coverage', placeholder=_(''), value=data.spatial_coverage, error=errors.spatial_coverage) }}
 
-	{{ form.input('temporal_coverage', label=_('Temporal Coverage'), id='temporal_coverage', placeholder=_('Temporal Coverage'), value=data.temporal_coverage, error=errors.temporal_coverage, classes=['control-medium']) }}
+	{{ form.input('language', label=_('Language'), id='language', placeholder=_('Language'), value=data.language, error=errors.language, classes=['control-medium']) }}
 
+	<fieldset>
+	<legend><h3>Temporal Coverage</h3>
+	{{ form.input('tc_start', label=_('Start Date'), id='tc_start', placeholder=_('Start Date'), value=data.tc_start, error=errors.tc_start, classes=['control-medium']) }}
+	{{ form.input('tc_end', label=_('End Date'), id='tc_end', placeholder=_('End Date'), value=data.tc_end, error=errors.tc_end, classes=['control-medium']) }}		
+	</fieldset>
+	
   {{ form.input('logo', label=_('Logo'), id='logo', placeholder=_('Logo URL'), value=data.logo, error=errors.logo, classes=['control-medium']) }}
 
   {% endblock %}
