@@ -28,12 +28,13 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
                     toolkit.get_converter('convert_to_extras')]
         
         schema.update({
-            'deeplink': defaults,
             'number_of_participants':defaults,
             'human_research':defaults,
             'number_of_records': defaults,
             'spatial_coverage': defaults,
-            'temporal_coverage': defaults,
+            'language': defaults,
+            'tc_start': defaults,
+            'tc_end': defaults,
             'logo': defaults
         })
         return schema
@@ -44,12 +45,13 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
                     toolkit.get_converter('convert_to_extras')]
         
         schema.update({
-            'deeplink': defaults,
             'number_of_participants':defaults,
             'human_research':defaults,
             'number_of_records': defaults,
             'spatial_coverage': defaults,
-            'temporal_coverage': defaults,
+            'language': defaults,
+            'tc_start': defaults,
+            'tc_end': defaults,
             'logo': defaults
         })
         return schema
@@ -61,12 +63,13 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
                     toolkit.get_validator('ignore_missing')]
         
         schema.update({
-            'deeplink': defaults,
             'number_of_participants':defaults,
             'human_research':defaults,
             'number_of_records': defaults,
             'spatial_coverage': defaults,
-            'temporal_coverage': defaults,
+            'language': defaults,
+            'tc_start': defaults,
+            'tc_end': defaults,
             'logo': defaults
         })
         
