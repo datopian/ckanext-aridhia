@@ -67,21 +67,28 @@
 {% endblock %}
 <header class="navbar navbar-static-top navbar-logo masthead">
   <div class="container">
-    {# The .header-image class hides the main text and uses image replacement for the title #}
-    <hgroup class="{{ g.header_class }} pull-left">
+    <div class="flex">
+      {# The .header-image class hides the main text and uses image replacement for the title #}
+      <hgroup class="{{ g.header_class }}">
 
-      {% block header_logo %}
-      {% if g.site_logo %}
-      <a class="logo" href="{{ h.url('home') }}"><img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" title="{{ g.site_title }}" /></a>
-      {% else %}
-      <h1>
-        <a href="{{ h.url('home') }}">{{ g.site_title }}</a>
-      </h1>
-      {% if g.site_description %}<h2>{{ g.site_description }}</h2>{% endif %}
-      {% endif %}
-      {% endblock %}
+        {% block header_logo %}
+        {% if g.site_logo %}
+        <a class="logo" href="{{ h.url('home') }}"><img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" title="{{ g.site_title }}" /></a>
+        {% else %}
+        <h1>
+          <a href="{{ h.url('home') }}">{{ g.site_title }}</a>
+        </h1>
+        {% if g.site_description %}<h2>{{ g.site_description }}</h2>{% endif %}
+        {% endif %}
+        {% endblock %}
 
-    </hgroup>    
+      </hgroup>
+
+      <ul class="unstyled pull-right language-switcher">
+        <li class="active">En</li>
+        <li><a href="#">Nl</a></li>
+      </ul>
+    </div>
   </div>
 </header>
 <header class="navbar navbar-static-top masthead">
@@ -113,6 +120,7 @@
           {% endblock %}
         </ul>
       </nav>
+
       {% endblock %}
 
       {% block header_site_search %}
@@ -123,6 +131,7 @@
           <button class="btn-search" type="submit"><i class="icon-search"></i></button>
         </div>
       </form>
+
       {% endblock %}
 
     </div>
