@@ -48,14 +48,18 @@
   <tr>
     <th scope="row" class="dataset-label">{{ _("Language") }}</th>
     <td class="dataset-details">
-        {{pkg_dict.language}}
+    {% set language = h.get_language_by_code(pkg_dict.language) %}
+    {% if language %}
+        {{language.language}}({{language.code}})
+    {% endif %}
+        
     </td>
   </tr>
-
+  
   <tr>
-    <th scope="row" class="dataset-label">{{ _("Logo") }}</th>
+    <th scope="row" class="dataset-label">{{ _("Version") }}</th>
     <td class="dataset-details">
-        {{pkg_dict.logo}}
+        {{h.get_package_version(pkg_dict.id)}}
     </td>
   </tr>
 
