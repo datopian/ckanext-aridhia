@@ -98,4 +98,8 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         return {
             'language_options':
                 _helpers.language_options,
+            'get_language_by_code':
+                _helpers.get_language_by_code,
+            'get_package_version':
+                _helpers.get_package_version
         }
