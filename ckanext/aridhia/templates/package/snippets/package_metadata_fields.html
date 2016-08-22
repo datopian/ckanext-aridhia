@@ -7,7 +7,8 @@
   {% endblock %}
 
   {% block package_metadata_fields_version %}
-    {{ form.input('version', label=_('Version'), id='field-version', placeholder=_('1.0'), value=data.version, error=errors.version, classes=['control-medium']) }}
+  {% set package_id = data.id or none %}
+    {{ form.input('version', label=_('Version'), id='field-version', placeholder=_('1.0'), value=h.get_package_version(package_id), error=errors.version, classes=['control-medium'], attrs={'readonly': ''}) }}
   {% endblock %}
 
   {% block package_metadata_author %}
