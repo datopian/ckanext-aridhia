@@ -31,7 +31,18 @@
 
 	{{ form.markdown('spatial_coverage', label=_('Spatial Coverage'), id='spatial_coverage', placeholder=_(''), value=data.spatial_coverage, error=errors.spatial_coverage) }}
 
-	{{ form.input('language', label=_('Language'), id='language', placeholder=_('Language'), value=data.language, error=errors.language, classes=['control-medium']) }}
+	<div class="control-group">
+	  <label class="control-label" for="language">{{ _("Language") }}</label>
+	  <div class="controls">
+	    <select id="language" name="language" data-module="autocomplete">
+	      {% set existing_lang_code = data.get('language') %}
+	      <option value="">{{_('Choose the dataset language')}}</option>
+	      {% for item in h.language_options() %}
+	        <option value="{{ item.code }}" {% if existing_lang_code == item.code %}selected="selected"{% endif %}>{{ item.language }}({{item.code}})</option>
+	      {% endfor %}
+	    </select>
+	   </div>
+	</div>
 
 	<fieldset>
 	<legend><h3>Temporal Coverage</h3>
@@ -39,8 +50,6 @@
 	{{ form.input('tc_end', label=_('End Date'), id='tc_end', placeholder=_('End Date'), value=data.tc_end, error=errors.tc_end, classes=['control-medium']) }}		
 	</fieldset>
 	
-  {{ form.input('logo', label=_('Logo'), id='logo', placeholder=_('Logo URL'), value=data.logo, error=errors.logo, classes=['control-medium']) }}
-
   {% endblock %}
 
   {% block package_metadata_fields_custom %}
