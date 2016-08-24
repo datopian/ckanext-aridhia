@@ -1,11 +1,13 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+import ckanext.aridhia.helpers as _helpers
 
 
 class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IDatasetForm, inherit=True)
+    plugins.implements(plugins.ITemplateHelpers)
     
     # IPackageController
     
@@ -91,3 +93,13 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'aridhia')
+        
+    def get_helpers(self):
+        return {
+            'language_options':
+                _helpers.language_options,
+            'get_language_by_code':
+                _helpers.get_language_by_code,
+            'get_package_version':
+                _helpers.get_package_version
+        }
