@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample HTML5 Inputs for CKAN</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="base/css/main.css">
+    <link rel="stylesheet" href="base/vendor/jquery-ui-1.9.2/themes/base/jquery.ui.all.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="base/vendor/jquery.min.js"></script>
+    <script src="base/vendor/jquery-ui-1.9.2/ui/jquery.ui.core.js"></script>
+    <script src="base/vendor/jquery-ui-1.9.2/ui/jquery.ui.widget.js"></script>
+    <script src="base/vendor/jquery-ui-1.9.2/ui/jquery.ui.datepicker.js"></script>
+    <script src="base/javascript/main.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#field_datepicker').datepicker({
+          dateFormat: 'DD, d MM, yy'
+        });
+
+        // Required for the info button for the fields
+        $('.control-group-info-toggle').click(function (e) {
+          e.preventDefault();
+          $(this).toggleClass('toggled');
+          $(this).parent().children('.control-group-info-content').toggleClass('control-group-info-content-hidden');
+        });
+      });
+    </script>
+    <style>
+      /* Resetting CKAN defaults - required just for this static page */
+      body{
+        background: inherit;
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content" class="container">
+      <h1>Sample HTML5 Inputs for CKAN</h1>
+      <hr>
+      <form action="">
+
+        <!-- HTML5 input for URLs -->
+        <div class="control-group">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label for="field_url">URL</label>
+          <input id="field_url" type="url" placeholder="http://" required="required">
+          <p class="help-block">Please enter a valid URL starting with the web protocol i.e. <strong>http://</strong></p>
+        </div>
+
+        <!-- HTML5 input for email -->
+        <div class="control-group">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label for="field_email">E-mail</label>
+          <input id="field_email" type="email" required="required">
+          <p class="help-block">Please enter a valid e-mail address</p>
+        </div>
+
+        <!-- HTML5 input for number values -->
+        <div class="control-group">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label for="field_number">Number</label>
+          <input id="field_number" type="number" min="0" required="required">
+        </div>
+
+        <!-- HTML5 input for Date picker -->
+        <div class="control-group">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label for="field_datepicker">Date Picker</label>
+          <input id="field_datepicker" placeholder="Please, pick a date" type="text" required="required">
+        </div>
+
+        <!-- HTML5 input for Range -->
+        <div class="control-group control-group-slider">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label for="field_range">Human Research</label>
+          <span class="ui-range-label">No</span>
+          <input class="ui-range-input" id="field_range" type="range" min="0" max="1" value="0" step="1">
+          <span class="ui-range-label">Yes</span>
+        </div>
+
+        <!-- HTML5 input for radio inputs -->
+        <div class="control-group">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label>Radio group example</label>
+          <label for="field_radio_yes" class="radio inline">
+            <input id="field_radio_yes" type="radio" name="radio[]"> Yes
+          </label>
+          <label for="field_radio_no" class="radio inline">
+            <input id="field_radio_no" type="radio" name="radio[]"> No
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
