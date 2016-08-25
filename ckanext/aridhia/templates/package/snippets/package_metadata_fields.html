@@ -128,7 +128,7 @@
 	      {% set existing_lang_code = data.get('language') %}
 	      <option value="">{{_('Choose the dataset language')}}</option>
 	      {% for item in h.language_options() %}
-	        <option value="{{ item.code }}" {% if existing_lang_code == item.code %}selected="selected"{% endif %}>{{ item.language }}({{item.code}})</option>
+	        <option value="{{ item.code }}" {% if existing_lang_code == item.code %}selected="selected"{% endif %}>{{ item.language }} ({{item.code}})</option>
 	      {% endfor %}
 	    </select>
 	   </div>
