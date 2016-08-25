@@ -28,17 +28,17 @@ this.ckan = this.ckan || {};
       return (body.data(key) || root).replace(/\/$/, '');
     }
 
-    ckan.SITE_ROOT   = getRootFromData('siteRoot');
+    ckan.SITE_ROOT = getRootFromData('siteRoot');
     ckan.LOCALE_ROOT = getRootFromData('localeRoot');
 
     // Convert all datetimes to the users timezone
-    jQuery('.automatic-local-datetime').each(function() {
-        moment.locale(browserLocale);
-        var date = moment(jQuery(this).data('datetime'));
-        if (date.isValid()) {
-            jQuery(this).html(date.format("LL, LT ([UTC]Z)")); 
-        }
-        jQuery(this).show();
+    jQuery('.automatic-local-datetime').each(function () {
+      moment.locale(browserLocale);
+      var date = moment(jQuery(this).data('datetime'));
+      if (date.isValid()) {
+        jQuery(this).html(date.format("LL, LT ([UTC]Z)"));
+      }
+      jQuery(this).show();
     })
 
     // Load the localisations before instantiating the modules.
@@ -94,7 +94,7 @@ this.ckan = this.ckan || {};
 // Forces this to redraw in Internet Explorer 7
 // This is useful for when IE7 doesn't properly render parts of the page after
 // some dom manipulation has happened
-this.jQuery.fn.ie7redraw = function() {
+this.jQuery.fn.ie7redraw = function () {
   if (jQuery('html').hasClass('ie7')) {
     jQuery(this).css('zoom', 1);
   }
@@ -102,11 +102,11 @@ this.jQuery.fn.ie7redraw = function() {
 
 
 // Show / hide filters for mobile
-$(function() {
-  $(".show-filters").click(function() {
+$(function () {
+  $(".show-filters").click(function () {
     $("body").addClass("filters-modal");
   });
-  $(".hide-filters").click(function() {
+  $(".hide-filters").click(function () {
     $("body").removeClass("filters-modal");
   });
 });

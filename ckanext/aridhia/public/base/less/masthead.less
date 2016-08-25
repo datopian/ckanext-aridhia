@@ -89,6 +89,10 @@
 
   .container {
     position: relative;
+
+    .flex{
+      align-items: center;
+    }
   }
 
   a {
@@ -119,8 +123,38 @@
     }
   }
 
-  &.navbar-logo{    
+  &.navbar-logo{
     background: #fff;
+  }
+
+  .header-image{
+    flex-grow: 3;
+  }
+
+  .language-switcher{
+
+    text-transform: uppercase;
+    margin-right: 20px;
+
+    a{
+      color: @layoutTextColor;
+    }
+
+    .active{
+      font-weight: 700;
+      color: @mastheadBackgroundColor;
+    }
+
+    li{
+      display: inline-block;
+
+      &:not(:first-child){
+        margin-left: 5px;
+        padding-left: 10px;
+        border-left: 1px solid black;
+      }
+    }
+
   }
 
   .nav-collapse {
@@ -158,6 +192,7 @@
   }
 
   .site-search {
+    float: right;
     margin: 2px 8px 2px 0;
     input {
       width: 200px;
@@ -192,7 +227,7 @@
 }
 
 .navbar-logo{
-  
+
   padding: 10px 0;
   .logo{
 
@@ -204,7 +239,7 @@
 
 @media (min-width: 980px) {
   .masthead  .nav-collapse {
-    float:right;
+    float: none;
   }
 }
 

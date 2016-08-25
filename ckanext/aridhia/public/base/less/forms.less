@@ -34,7 +34,7 @@ label.checkbox:after {
 input[type=radio],
 input[type=checkbox] {
   position: relative;
-  top: 7px;
+  top: 0;
   padding: 0;
   margin: 0;
   &.checkbox-onown {
@@ -728,8 +728,8 @@ textarea {
 
 .control-group.error .select2-container {
   input:focus,
-  select:focus,
-  textarea:focus {
+    select:focus,
+    textarea:focus {
     .box-shadow(none);
   }
 }
@@ -803,4 +803,50 @@ textarea {
 #recaptcha_table {
   table-layout: inherit;
   line-height: 1;
+}
+
+.ui-range-input{
+  margin: 0 8px;
+}
+
+.ui-range-label-selected{
+  font-weight: 700;
+}
+
+.control-group-info{
+  position: relative;
+}
+
+.control-group-info-toggle{
+  .ckan-icon;
+  .ckan-icon-info;
+  float: right;
+
+  &.toggled{
+    background-color: @layoutBackgroundColor;
+    border-radius: 50%;
+  }
+}
+
+.control-group-info-content{
+  display: block;
+  z-index: 10;
+  position: absolute;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  top: 0;
+  right: 30px;
+  background: #fff;
+  padding: 10px 15px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  max-width: 300px;
+  transition: 1s all ease-in-out 20ms;
+
+  p:last-child{
+    margin-bottom: 0;
+  }
+}
+
+.control-group-info-content-hidden{
+  display: none;
 }
