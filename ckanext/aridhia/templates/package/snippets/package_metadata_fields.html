@@ -20,9 +20,11 @@
               <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
             </div>
           </div>
-          <label for="url">URL</label>
-          <input id="url" name="url" type="url" placeholder="http://" required="required" value="{{data.url}}"> 
+          <label class="control-label" for="url">URL</label>
+          <div class="controls">
+            <input id="url" name="url" type="url" placeholder="http://" required="required" value="{{data.url}}"> 
           <p class="help-block">Please enter a valid URL starting with the web protocol i.e. <strong>http://</strong></p>
+          </div>
         </div>
 
   {% endblock %}
@@ -65,8 +67,10 @@
               <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
             </div>
           </div>
-          <label for="number_of_participants">{{_('Number of participants')}}</label>
-          <input id="number_of_participants" name="number_of_participants" type="number" min="0" required="required" value="{{data.number_of_participants}}">
+          <label class="control-label" for="number_of_participants">{{_('Number of participants')}}</label>
+          <div class="controls">
+            <input id="number_of_participants" name="number_of_participants" type="number" min="0" required="required" value="{{data.number_of_participants}}">
+          </div>
         </div>
 
         <div class="control-group control-medium">
@@ -76,8 +80,10 @@
               <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
             </div>
           </div>
-          <label for="number_of_records">{{_('Number of records')}}</label>
-          <input id="number_of_records" name="number_of_records" type="number" min="0" required="required" value="{{data.number_of_records}}">
+          <label class="control-label" for="number_of_records">{{_('Number of records')}}</label>
+          <div class="controls">
+            <input id="number_of_records" name="number_of_records" type="number" min="0" required="required" value="{{data.number_of_records}}">
+          </div>
         </div>
 
 
@@ -89,10 +95,12 @@
               <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
             </div>
           </div>
-          <label for="field_range">Human Research</label>
-          <span class="ui-range-label">No</span>
-          <input class="ui-range-input" id="human_research" name="human_research" type="range" min="0" max="1" value="{{data.human_research}}" step="1">
-          <span class="ui-range-label">Yes</span>
+          <label class="control-label" for="field_range">Human Research</label>
+          <div class="controls">
+            <span class="ui-range-label">No</span>
+            <input class="ui-range-input" id="human_research" name="human_research" type="range" min="0" max="1" value="{{data.human_research}}" step="1">
+            <span class="ui-range-label">Yes</span>
+          </div>
         </div>
         <!--
         <div class="control-group contrrol-medium">
@@ -136,8 +144,10 @@
               <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
             </div>
           </div>
-          <label for="tc_start">{{_('Start date')}}</label>
-          <input id="tc_start" name="tc_start" placeholder="Please, pick a date" type="text" required="required" value="{{data.tc_start}}">
+          <label class="control-label" for="tc_start">{{_('Start date')}}</label>
+          <div class="controls">
+            <input id="tc_start" name="tc_start" placeholder="Please, pick a date" type="text" required="required" value="{{data.tc_start}}">
+          </div>
         </div>
 
           <!-- HTML5 input for Date picker -->
@@ -148,8 +158,10 @@
               <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
             </div>
           </div>
-          <label for="tc_end">{{_('End date')}}</label>
-          <input id="tc_end" name="tc_end" placeholder="Please, pick a date" type="text" required="required" value="{{data.tc_end}}">
+          <label class="control-label" for="tc_end">{{_('End date')}}</label>
+          <div class="controls">
+            <input id="tc_end" name="tc_end" placeholder="Please, pick a date" type="text" required="required" value="{{data.tc_end}}">
+          </div>
         </div>
 
 
