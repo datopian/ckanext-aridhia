@@ -1,3 +1,10 @@
+// Colors
+@white: #ffffff;
+@brand-light: #00A0D0;
+@brand: rgb(0,105,145);
+@brand-darker: darken(@brand, 10%);
+@brand-dark: darken(@brand-darker, 10%);
+
 // Base variables
 @imagePath: "../../../base/images";
 @spritePath: "@{imagePath}/sprite-ckan-icons.png";
@@ -5,13 +12,16 @@
 @FontAwesomePath: "../../../base/vendor/font-awesome/font";
 
 // Layout Variables
-@layoutFontFamily: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@layoutLinkColor: @brand-light;
+@layoutFontFamily: @sansFontFamily;
 @layoutTextColor: #444;
 @layoutBoldColor: #000;
-@layoutLinkColor: #187794;
 @layoutBackgroundColor: rgb(220,220,220);
 @layoutTrimBackgroundColor: #fff;
 @layoutTrimBorderColor: #ccc;
+
+@textColor: @layoutTextColor;
+@linkColor: @layoutLinkColor;
 
 @navLinkColor: #333;
 @navActiveBackgroundColor: #f6f6f6;
@@ -43,7 +53,7 @@
 @mastheadBackgroundColorEnd: #00536b;
 
 @navItemActiveTextColor: #FFF;
-@navItemActiveBackgroundColor: #8CA0A6;
+@navItemActiveBackgroundColor: @brand-light;
 
 @pillTextColor: @navItemActiveTextColor;
 @pillBackgroundColor: darken(@navItemActiveBackgroundColor, 10%);
@@ -57,8 +67,7 @@
 
 @inputColor: @black;
 @inputBackground: @white;
-@inputBorder: #ccc;
-@inputBorderRadius: 3px;
+@inputBorderRadius: @borderRadiusSmall;
 @disabledCustomInputTextColor: #aaa;
 @disabledCustomInputBackground: #f3f3f3;
 
@@ -67,9 +76,9 @@
 
 // Forms
 
-@errorText: #b55457;
-@errorBackground: lighten(#c6898b, 30%);
-@errorBorder: #c6898b;
+@infoText: @brand-darker;
+@infoBackground: lighten(@brand-light, 50%);
+@infoBorder: @brand-darker;
 
 @formInfoText: #707070;
 
@@ -105,13 +114,7 @@
 
 // Twitter Bootstrap Overrides
 @bodyBackground: @layoutBackgroundColor;
-@btnBackground: #ffffff;
-@btnBackgroundHighlight: #eaeaea;
-@btnPrimaryBackground: #30778d;
-@btnPrimaryBackgroundHighlight: #085871;
 @baseFontFamily: @layoutFontFamily;
-@textColor: @layoutTextColor;
-@linkColor: @layoutLinkColor;
 @iconSpritePath: "../images/bootstrap-glyphicons-halflings.png";
 @iconWhiteSpritePath: "../images/bootstrap-glyphicons-halflings-white.png";
 
@@ -122,3 +125,10 @@
 @activityColorNeutral: #767DCE;
 @activityColorModify: #767DCE;
 @activityColorDelete: #B95252;
+
+// Buttons
+@btnBorder: darken(@btnBackground, 10%);
+@btnBackground: @white;
+@btnBackgroundHighlight: darken(@white, 5%);
+@btnPrimaryBackground: @brand-light;
+@btnPrimaryBackgroundHighlight: @brand;

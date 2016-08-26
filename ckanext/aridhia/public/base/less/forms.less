@@ -89,7 +89,8 @@ textarea {
 }
 
 .control-required {
-  color: @errorBorder;
+  color: @red;
+  font-size: @fontSizeLarge;
 }
 
 .form-actions .control-required-message {
@@ -815,30 +816,39 @@ textarea {
 
 .control-group-info{
   position: relative;
+
+  &.toggled{
+
+    .control-group-info-toggle{
+      filter: drop-shadow(0 0 2px @yellow);
+    }
+
+    .control-group-info-content{
+      display: block;
+    }
+  }
 }
 
 .control-group-info-toggle{
   .ckan-icon;
   .ckan-icon-info;
   float: right;
-
-  &.toggled{
-    background-color: @layoutBackgroundColor;
-    border-radius: 50%;
-  }
+  margin-bottom: 10px;
 }
 
 .control-group-info-content{
-  display: block;
+  display: none;
   z-index: 10;
   position: absolute;
-  box-shadow: 0 0 5px rgba(0,0,0,0.05);
-  top: 0;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+  top: -@gutterSmallX;
+  line-height: normal;
+  font-size: @baseFontSize;
   right: 30px;
   background: #fff;
   padding: 10px 15px;
-  border: 1px solid #eee;
-  border-radius: 3px;
+  border: 1px solid @inputBorder;
+  border-radius: @borderRadiusSmall;
   max-width: 300px;
   transition: 1s all ease-in-out 20ms;
 
@@ -847,6 +857,31 @@ textarea {
   }
 }
 
-.control-group-info-content-hidden{
-  display: none;
+.help-block{
+  font-size: @baseFontSize;
+  line-height: normal;
+  margin-top: 10px;
+  font-style: oblique;
+  color: @grayLight;
+}
+
+.select2-container{
+
+  .select2-choice{
+    background-image: none;
+    border-color: @genericBorderColor;
+  }
+
+  .select2-highlighted{
+    background: @brand-light;
+  }
+}
+
+.dataset-form{
+
+  legend{
+    font-weight: 700;
+    color: @brand;
+    margin-left: 130px;
+  }
 }
