@@ -7,15 +7,31 @@
 
 {% resource 'aridhia/aridhia.js' %}
 
+
+
 {% block package_metadata_fields %}
 
   {% block package_metadata_fields_url %}
-    {{ form.input('url', label=_('URL'), id='field-url', placeholder=_('http://example.com/dataset.json'), value=data.url, error=errors.url, classes=['control-medium']) }}
+
+        <div class="control-group">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label class="control-label" for="url">URL</label>
+          <div class="controls">
+            <input id="url" name="url" type="url" placeholder="http://" required="required" value="{{data.url}}"> 
+          <p class="help-block">Please enter a valid URL starting with the web protocol i.e. <strong>http://</strong></p>
+          </div>
+        </div>
+
   {% endblock %}
 
   {% block package_metadata_fields_version %}
   {% set package_id = data.id or none %}
-    {{ form.input('version', label=_('Version'), id='field-version', placeholder=_('1.0'), value=h.get_package_version(package_id), error=errors.version, classes=['control-medium'], attrs={'readonly': ''}) }}
+    {{ form.input('version', label=_('Version'), id='field-version', placeholder=_('1.0'), value=h.get_package_version(package_id), error=errors.version, classes=['control-medium'], type='number') }}
   {% endblock %}
 
   {% block package_metadata_author %}
@@ -24,8 +40,10 @@
     {{ form.input('author', label=_('Creator'), id='field-author', placeholder=_('Joe Bloggs'), value=data.author, error=errors.author, classes=['control-medium']) }}
 
     {{ form.input('author_email', label=_('Creator Email'), id='field-author-email', placeholder=_('joe@example.com'), value=data.author_email, error=errors.author_email, classes=['control-medium']) }}
-    <div class="control-group text-center">
-    	<a id="assign-creator" class="btn btn-primary">Assign me as creator</a>
+    <div class="control-group">
+      <div class="controls">
+    	   <a id="assign-creator" class="btn btn-default">Assign me as creator</a>
+      </div>
     </div>
   </fieldset>
   {% endblock %}
@@ -36,18 +54,74 @@
     {{ form.input('maintainer', label=_('Publisher'), id='field-maintainer', placeholder=_('Joe Bloggs'), value=data.maintainer, error=errors.maintainer, classes=['control-medium']) }}
 
     {{ form.input('maintainer_email', label=_('Publisher Email'), id='field-maintainer-email', placeholder=_('joe@example.com'), value=data.maintainer_email, error=errors.maintainer_email, classes=['control-medium']) }}
-    <div class="control-group text-center">
-     <a id="assign-publisher" class="btn btn-primary">Assign me as publisher</a>
+    <div class="control-group">
+      <div class="controls">
+        <a id="assign-publisher" class="btn btn-default">Assign me as publisher</a>
+      </div>
      </div>
   </fieldset>
   {% endblock %}
 
   {% block dataset_fields %}
-	{{ form.input('number_of_participants', label=_('Number of participants'), id='number_of_participants', placeholder=_('0'), value=data.number_of_participants, error=errors.number_of_participants, classes=['control-medium']) }}
 
-	{{ form.input('number_of_records', label=_('Number of Records'), id='number_of_records', placeholder=_('0'), value=data.number_of_records, error=errors.number_of_records, classes=['control-medium']) }}
+        <div class="control-group control-medium">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label class="control-label" for="number_of_participants">{{_('Number of participants')}}</label>
+          <div class="controls">
+            <input id="number_of_participants" name="number_of_participants" type="number" min="0" required="required" value="{{data.number_of_participants}}">
+          </div>
+        </div>
 
-	{{ form.input('human_research', label=_('Human Research'), id='human_research', placeholder=_('Yes/No'), value=data.human_research, error=errors.human_research, classes=['control-medium']) }}
+        <div class="control-group control-medium">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label class="control-label" for="number_of_records">{{_('Number of records')}}</label>
+          <div class="controls">
+            <input id="number_of_records" name="number_of_records" type="number" min="0" required="required" value="{{data.number_of_records}}">
+          </div>
+        </div>
+
+
+          <!-- HTML5 input for Range -->
+        <div class="control-group control-group-slider">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label class="control-label" for="field_range">Human Research</label>
+          <div class="controls">
+            <span class="ui-range-label">No</span>
+            <input class="ui-range-input" id="human_research" name="human_research" type="range" min="0" max="1" value="{{data.human_research}}" step="1">
+            <span class="ui-range-label">Yes</span>
+          </div>
+        </div>
+        <!--
+        <div class="control-group contrrol-medium">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label>{{_('Human research')}}</label>
+          <label for="human_research_yes" class="radio inline">
+            <input id="human_research_yes" type="radio" name="human_research" value="1" {% if data.human_research == '1' %}checked{% endif %}> Yes
+          </label>
+          <label for="human_research_no" class="radio inline">
+            <input id="human_research_no" type="radio" name="human_research" value="0"{% if data.human_research == '0' %}checked{% endif %}> No
+          </label>
+        </div> -->
 
 	{{ form.markdown('spatial_coverage', label=_('Spatial Coverage'), id='spatial_coverage', placeholder=_(''), value=data.spatial_coverage, error=errors.spatial_coverage) }}
 
@@ -58,7 +132,7 @@
 	      {% set existing_lang_code = data.get('language') %}
 	      <option value="">{{_('Choose the dataset language')}}</option>
 	      {% for item in h.language_options() %}
-	        <option value="{{ item.code }}" {% if existing_lang_code == item.code %}selected="selected"{% endif %}>{{ item.language }}({{item.code}})</option>
+	        <option value="{{ item.code }}" {% if existing_lang_code == item.code %}selected="selected"{% endif %}>{{ item.language }} ({{item.code}})</option>
 	      {% endfor %}
 	    </select>
 	   </div>
@@ -66,8 +140,35 @@
 
 	<fieldset>
 	<legend><h3>Temporal Coverage</h3>
-	{{ form.input('tc_start', label=_('Start Date'), id='tc_start', placeholder=_('Start Date'), value=data.tc_start, error=errors.tc_start, classes=['control-medium']) }}
-	{{ form.input('tc_end', label=_('End Date'), id='tc_end', placeholder=_('End Date'), value=data.tc_end, error=errors.tc_end, classes=['control-medium']) }}		
+        <!-- HTML5 input for Date picker -->
+        <div class="control-group">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label class="control-label" for="tc_start">{{_('Start date')}}</label>
+          <div class="controls">
+            <input id="tc_start" name="tc_start" placeholder="Please, pick a date" type="text" required="required" value="{{data.tc_start}}">
+          </div>
+        </div>
+
+          <!-- HTML5 input for Date picker -->
+        <div class="control-group">
+          <div class="control-group-info">
+            <a href="#" class="control-group-info-toggle"></a>
+            <div class="control-group-info-content control-group-info-content-hidden">
+              <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipiscing elit</a>. Sed vitae rhoncus metus, nec mollis neque.</p>
+            </div>
+          </div>
+          <label class="control-label" for="tc_end">{{_('End date')}}</label>
+          <div class="controls">
+            <input id="tc_end" name="tc_end" placeholder="Please, pick a date" type="text" required="required" value="{{data.tc_end}}">
+          </div>
+        </div>
+
+
 	</fieldset>
 	
   {% endblock %}
