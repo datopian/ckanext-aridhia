@@ -820,11 +820,13 @@ textarea {
   &.toggled{
 
     .control-group-info-toggle{
-      filter: drop-shadow(0 0 2px @yellow);
+      outline: 0;
+      position: relative;
+      box-shadow: 0 0 8px @orange;
+      border-radius: 50%;
     }
 
     .control-group-info-content{
-      /*display: block;*/
       opacity: 1;
       visibility: visible;
     }
@@ -836,10 +838,10 @@ textarea {
   .ckan-icon-info;
   float: right;
   margin-bottom: 10px;
+  border: 1px solid transparent;
 }
 
 .control-group-info-content{
-  /*  display: none;*/
   visibility: hidden;
   opacity: 0;
   z-index: 10;
