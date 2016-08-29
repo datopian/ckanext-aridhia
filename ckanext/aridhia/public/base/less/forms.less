@@ -847,15 +847,15 @@ textarea {
   z-index: 10;
   position: absolute;
   box-shadow: 0 0 15px rgba(0,0,0,0.08);
-  top: -@gutterSmallX;
+  top: -10px;
   line-height: normal;
   font-size: @baseFontSize;
-  right: 30px;
+  right: -32%;
   background: #fff;
   padding: 10px 15px;
   border: 1px solid @inputBorder;
   border-radius: @borderRadiusSmall;
-  max-width: 300px;
+  max-width: 25%;
   transition: 200ms all ease-in-out;
 
   p:last-child{
@@ -904,6 +904,7 @@ textarea {
   .checkbox {
     display: none;
   }
+
   .label {
     display: block;
     overflow: hidden;
@@ -912,6 +913,7 @@ textarea {
     padding: 0;
     background: none;
   }
+
   .inner {
     display: block;
     width: 200%;
@@ -933,12 +935,14 @@ textarea {
       font-weight: 700;
       box-sizing: border-box;
     }
+
     &:before {
       content: "YES";
       padding-left: 10px;
       background-color: @brand;
       color: @white;
     }
+
     &:after {
       content: "NO";
       padding-left: 10px;
@@ -947,7 +951,9 @@ textarea {
       color: @moduleHeadingActionTextColor;
       text-align: right;
     }
+
   }
+
   .switch {
     display: block;
     width: 18px;
@@ -960,10 +966,13 @@ textarea {
     border-radius: 20px;
     transition: all 0.3s ease-in 0s;
   }
+
   .checkbox:checked + .label .inner {
     margin-left: 0;
   }
+
   .checkbox:checked + .label .switch {
     right: 0px;
   }
+
 }
