@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  var controlGroupInfoToggle = $('.control-group-info-toggle');
+
   $('#assign-creator').on('click', function () {
 
     var current_user_email = $('#current_user_email').val();
@@ -28,7 +30,7 @@
     });
 
     // Required for the info button for the fields
-    $('.control-group-info-toggle').click(function (e) {
+    controlGroupInfoToggle.click(function (e) {
       e.preventDefault();
       if (!$(this).parent().hasClass('toggled')) {
         $('.control-group-info').removeClass('toggled');
@@ -36,6 +38,11 @@
       } else {
         $(this).parent().removeClass('toggled');
       }
+    });
+
+    // Hide control group info when it loses focus
+    controlGroupInfoToggle.blur(function () {
+      $(this).parent().removeClass('toggled');
     });
   });
 

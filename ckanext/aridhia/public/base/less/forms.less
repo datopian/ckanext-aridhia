@@ -824,7 +824,9 @@ textarea {
     }
 
     .control-group-info-content{
-      display: block;
+      /*display: block;*/
+      opacity: 1;
+      visibility: visible;
     }
   }
 }
@@ -837,7 +839,9 @@ textarea {
 }
 
 .control-group-info-content{
-  display: none;
+  /*  display: none;*/
+  visibility: hidden;
+  opacity: 0;
   z-index: 10;
   position: absolute;
   box-shadow: 0 0 15px rgba(0,0,0,0.08);
@@ -850,7 +854,7 @@ textarea {
   border: 1px solid @inputBorder;
   border-radius: @borderRadiusSmall;
   max-width: 300px;
-  transition: 1s all ease-in-out 20ms;
+  transition: 200ms all ease-in-out;
 
   p:last-child{
     margin-bottom: 0;
@@ -883,9 +887,11 @@ textarea {
     font-weight: 700;
     color: @brand;
     margin-left: 130px;
+    width: 80%;
   }
 }
 
+// UI Switch element visible on the Add Dataset page
 .ui-switch {
   position: relative;
   width: 80px;
