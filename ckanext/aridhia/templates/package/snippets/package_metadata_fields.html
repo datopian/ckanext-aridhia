@@ -161,9 +161,13 @@
   </div>
   <label class="control-label" for="field_range">{{_('Human Research')}}</label>
   <div class="controls">
-    <span class="ui-range-label">{{_('No')}}</span>
-    <input class="ui-range-input" id="human_research" name="human_research" type="range" min="0" max="1" value="{{data.human_research}}" step="1">
-    <span class="ui-range-label">{{_('Yes')}}</span>
+    <div class="ui-switch">
+      <input type="checkbox" name="human_research" class="checkbox" id="human_research" value="{{data.human_research}}" checked="checked">
+      <label class="label" for="human_research">
+        <span class="inner"></span>
+        <span class="switch"></span>
+      </label>
+    </div>
     <p class="help-block">{{_("Does this dataset relate to research on human research participants \(i.e. as opposed to an animal study)")}}</p>
   </div>
 </div>

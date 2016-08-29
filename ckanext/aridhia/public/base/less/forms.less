@@ -885,3 +885,77 @@ textarea {
     margin-left: 130px;
   }
 }
+
+.ui-switch {
+  position: relative;
+  width: 80px;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select: none;
+
+  .checkbox {
+    display: none;
+  }
+  .label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: @gutterSmallX;
+    padding: 0;
+    background: none;
+  }
+  .inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+    text-shadow: none;
+    color: @layoutTextColor;
+
+    &:before, &:after {
+      display: block;
+      float: left;
+      width: 50%;
+      height: @gutterSmallX*2;
+      padding: 0;
+      line-height: @gutterSmallX*2;
+      font-size: 12px;
+      color: @white;
+      font-family: inherit;
+      font-weight: 700;
+      box-sizing: border-box;
+    }
+    &:before {
+      content: "YES";
+      padding-left: 10px;
+      background-color: @brand;
+      color: @white;
+    }
+    &:after {
+      content: "NO";
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: #ebebeb;
+      color: @moduleHeadingActionTextColor;
+      text-align: right;
+    }
+  }
+  .switch {
+    display: block;
+    width: 18px;
+    margin: 6px;
+    background: @white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 50px;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+  }
+  .checkbox:checked + .label .inner {
+    margin-left: 0;
+  }
+  .checkbox:checked + .label .switch {
+    right: 0px;
+  }
+}
