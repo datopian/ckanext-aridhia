@@ -27,7 +27,12 @@
    <tr>
     <th scope="row" class="dataset-label">{{ _("Human Research") }}</th>
     <td class="dataset-details">
-        {{pkg_dict.human_research}}
+    {% if pkg_dict.human_research ==
+    '1' %}
+        {{_('Yes')}}
+    {% else %}
+        {{_('No')}}
+    {% endif %}
     </td>
   </tr>
 
@@ -44,7 +49,7 @@
         {{pkg_dict.tc_start}} - {{pkg_dict.tc_end}}
     </td>
   </tr>
- 
+
   <tr>
     <th scope="row" class="dataset-label">{{ _("Language") }}</th>
     <td class="dataset-details">
@@ -52,10 +57,10 @@
     {% if language %}
         {{language.language}} ({{language.code}})
     {% endif %}
-        
+
     </td>
   </tr>
-  
+
   <tr>
     <th scope="row" class="dataset-label">{{ _("Version") }}</th>
     <td class="dataset-details">
