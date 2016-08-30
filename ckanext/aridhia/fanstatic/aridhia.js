@@ -3,6 +3,19 @@
 
   var controlGroupInfoToggle = $('.control-group-info-toggle');
 
+  $('#human_research').on('click', function () {
+
+    if($('#human_research').is(':checked')){
+      $('#human_research').val(1);
+      $('#human_research').attr('checked', 'checked');
+    }
+    else{
+      $('#human_research').val(0);
+      $('#human_research').removeAttr('checked');
+    }
+
+  });
+
   $('#assign-creator').on('click', function () {
 
     var current_user_email = $('#current_user_email').val();
@@ -23,10 +36,22 @@
 
   $(document).ready(function () {
     $('#tc_start').datepicker({
-      dateFormat: 'yy-mm-dd'
+      dateFormat: 'yy-mm-dd',
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        onClose: function(dateText, inst) {
+            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+        }
     });
     $('#tc_end').datepicker({
-      dateFormat: 'yy-mm-dd'
+      dateFormat: 'yy-mm-dd',
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        onClose: function(dateText, inst) {
+            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+        }
     });
 
     // Required for the info button for the fields
