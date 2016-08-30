@@ -36,21 +36,23 @@
 
   $(document).ready(function () {
     $('#tc_start').datepicker({
-      dateFormat: 'yy-mm-dd',
+      dateFormat: 'yy-mm',
+        changeDay: false,
         changeMonth: true,
         changeYear: true,
         showButtonPanel: true,
         onClose: function(dateText, inst) {
-            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth));
         }
     });
     $('#tc_end').datepicker({
-      dateFormat: 'yy-mm-dd',
+      dateFormat: 'yy-mm',
+        changeDay: false,
         changeMonth: true,
         changeYear: true,
         showButtonPanel: true,
         onClose: function(dateText, inst) {
-            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth));
         }
     });
 
