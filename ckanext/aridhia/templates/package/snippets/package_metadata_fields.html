@@ -46,7 +46,7 @@
     </div>
     <label class="control-label" for="field-author">{{_('Creator')}}</label>
     <div class="controls ">
-      <input id="field-author" type="text" name="author" value="" placeholder="Joe Bloggs">
+      <input id="field-author" type="text" name="author" value="{{data.author}}" placeholder="Joe Bloggs">
       <p class="help-block">{{_('The name of the person who created this dataset.')}}</p>
     </div>
   </div>
@@ -60,7 +60,7 @@
     </div>
     <label class="control-label" for="field-author-email">{{_('Creator Email')}}</label>
     <div class="controls ">
-      <input id="field-author-email" type="text" name="author_email" value="" placeholder="joe@example.com">
+      <input id="field-author-email" type="text" name="author_email" value="{{data.author_email}}" placeholder="joe@example.com">
       <p class="help-block">{{_('The contact email for the creator of the dataset')}}</p>
     </div>
   </div>
@@ -84,7 +84,7 @@
     </div>
     <label class="control-label" for="field-maintainer">{{_('Publisher')}}</label>
     <div class="controls ">
-      <input id="field-maintainer" type="text" name="maintainer" value="" placeholder="Joe Bloggs">
+      <input id="field-maintainer" type="text" name="maintainer" value="{{data.maintainer}}" placeholder="Joe Bloggs">
       <p class="help-block">{{_('The primary point of contact for the dataset and access to it.')}}</p>
     </div>
   </div>
@@ -98,7 +98,7 @@
     </div>
     <label class="control-label" for="field-maintainer-email">{{_('Publisher Email')}}</label>
     <div class="controls ">
-      <input id="field-maintainer-email" type="text" name="maintainer_email" value="" placeholder="joe@example.com">
+      <input id="field-maintainer-email" type="text" name="maintainer_email" value="{{data.maintainer_email}}" placeholder="joe@example.com">
       <p class="help-block">{{_('The contact email for the publisher of the dataset.')}}</p>
     </div>
   </div>
