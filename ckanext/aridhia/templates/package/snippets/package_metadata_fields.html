@@ -29,18 +29,6 @@
 
 {% endblock %}
 
-{% block package_metadata_fields_version %}
-{% set package_id = data.id or none %}
-
-<div class="control-group control-medium">
-  <label class="control-label" for="field-version">{{_('Version')}}</label>
-  <div class="controls ">
-    <input id="field-version" type="number" name="version" value="{{h.get_package_version(package_id)}}" placeholder="1.0">
-    <p class="help-block">{{_('The current revision of the data set.')}}</p>
-  </div>
-</div>
-{% endblock %}
-
 {% block package_metadata_author %}
 <fieldset>
   <legend>{{_('Creator')}}</legend>
