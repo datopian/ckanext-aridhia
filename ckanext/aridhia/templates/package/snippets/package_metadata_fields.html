@@ -223,6 +223,12 @@
 {% block custom_fields %}
 <fieldset>
   <legend>{{_('Custom Fields')}}</legend>
+  <div class="control-group-info">
+      <a href="#" class="control-group-info-toggle"></a>
+      <div class="control-group-info-content control-group-info-content-hidden">
+        <p>{{_('Custom fields custom text')}}</p>
+      </div>
+  </div>
   {% snippet 'snippets/custom_form_fields.html', extras=data.extras, errors=errors, limit=3 %}
 </fieldset>
 {% endblock %}
