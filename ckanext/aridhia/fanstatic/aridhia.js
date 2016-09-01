@@ -57,7 +57,7 @@
     });
 
     // Required for the info button for the fields
-    controlGroupInfoToggle.click(function (e) {
+    controlGroupInfoToggle.hover(function (e) {
       e.preventDefault();
       if (!$(this).parent().hasClass('toggled')) {
         $('.control-group-info').removeClass('toggled');
