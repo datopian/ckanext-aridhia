@@ -32,8 +32,12 @@
 {% block package_metadata_author %}
 <fieldset>
   <legend>{{_('Creator')}}</legend>
-
   <div class="control-group control-medium">
+    <div class="control-group">
+      <div class="controls">
+        <a id="assign-creator" class="btn btn-default">{{_('Assign me as creator')}}</a>
+      </div>
+    </div>
     <div class="control-group-info">
       <a href="#" class="control-group-info-toggle"></a>
       <div class="control-group-info-content control-group-info-content-hidden">
@@ -60,20 +64,18 @@
       <p class="help-block">{{_('The contact email for the creator of the dataset')}}</p>
     </div>
   </div>
-
-  <div class="control-group">
-    <div class="controls">
-      <a id="assign-creator" class="btn btn-default">{{_('Assign me as creator')}}</a>
-    </div>
-  </div>
 </fieldset>
 {% endblock %}
 
 {% block package_metadata_fields_maintainer %}
 <fieldset>
   <legend>{{_('Publisher')}}</legend>
-
   <div class="control-group control-medium">
+    <div class="control-group">
+      <div class="controls">
+        <a id="assign-publisher" class="btn btn-default">{{_('Assign me as publisher')}}</a>
+      </div>
+    </div>
     <div class="control-group-info">
       <a href="#" class="control-group-info-toggle"></a>
       <div class="control-group-info-content control-group-info-content-hidden">
@@ -98,12 +100,6 @@
     <div class="controls ">
       <input id="field-maintainer-email" type="text" name="maintainer_email" value="" placeholder="joe@example.com">
       <p class="help-block">{{_('The contact email for the publisher of the dataset.')}}</p>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <div class="controls">
-      <a id="assign-publisher" class="btn btn-default">{{_('Assign me as publisher')}}</a>
     </div>
   </div>
 </fieldset>
