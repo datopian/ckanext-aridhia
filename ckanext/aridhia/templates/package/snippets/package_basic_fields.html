@@ -1,7 +1,7 @@
 {% import 'macros/form.html' as form %}
 
 {% block package_basic_fields_title %}
-  {{ form.input('title', id='field-title', label=_('Title'), placeholder=_('eg. A descriptive title'), value=data.title, error=errors.title, classes=['control-full', 'control-large'], attrs={'data-module': 'slug-preview-target'}) }}
+  {{ form.input('title', id='field-title', label=_('Title'), placeholder=_('eg. A descriptive title'), value=data.title, error=errors.title, classes=['control-full', 'control-large'], attrs={'data-module': 'slug-preview-target'}, is_required=true) }}
 {% endblock %}
 
 {% block package_basic_fields_url %}
@@ -16,7 +16,7 @@
 {% block package_basic_fields_custom %}{% endblock %}
 
 {% block package_basic_fields_description %}
-  {{ form.markdown('notes', id='field-notes', label=_('Description'), placeholder=_('eg. Some useful notes about the data'), value=data.notes, error=errors.notes) }}
+  {{ form.markdown('notes', id='field-notes', label=_('Description'), placeholder=_('eg. Some useful notes about the data'), value=data.notes, error=errors.notes, is_required=true) }}
 {% endblock %}
 
 {% block package_basic_fields_tags %}
@@ -27,7 +27,7 @@
 {% block package_basic_fields_license %}
 <div class="control-group">
   {% set error = errors.license_id %}
-  <label class="control-label" for="field-license">{{ _("Rights") }}</label>
+  <label class="control-label" for="field-license"><span title="This field is required" class="control-required">*</span> {{ _("Rights") }}</label>
   <div class="controls">
     <select id="field-license" name="license_id" data-module="autocomplete">
       {% set existing_license_id = data.get('license_id') %}
@@ -72,7 +72,7 @@
   {% if show_organizations_selector %}
     {% set existing_org = data.owner_org or data.group_id %}
     <div class="control-group">
-      <label for="field-organizations" class="control-label">{{ _('Organization') }}</label>
+      <label for="field-organizations" class="control-label"><span title="This field is required" class="control-required">*</span> {{ _('Organization') }}</label>
       <div class="controls">
         <select id="field-organizations" name="owner_org" data-module="autocomplete">
           {% if h.check_config_permission('create_unowned_dataset') %}
