@@ -37,7 +37,12 @@
     </select>
     {% if error %}<span class="error-block">{{ error }}</span>{% endif %}
     <span class="info-block info-inline">
-      <i class="icon-info-sign"></i>
+      <div class="control-group-info">
+        <a href="#" class="control-group-info-toggle"></a>
+        <div class="control-group-info-content control-group-info-content-hidden">
+          <p>{{_('License definitions and additional information')}}</p>
+        </div>
+      </div>
       {% trans %}
         License definitions and additional information can be found
         at <a href="http://opendefinition.org/licenses/">opendefinition.org</a>
