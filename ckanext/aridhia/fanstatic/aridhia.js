@@ -15,6 +15,12 @@
     }
 
   });
+  $('#clear_tc_start').on('click', function () {
+    $('#tc_start').val('');
+  });
+  $('#clear_tc_end').on('click', function () {
+    $('#tc_end').val('');
+  });
 
   $('#assign-creator').on('click', function () {
 

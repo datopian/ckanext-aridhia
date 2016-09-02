@@ -206,12 +206,11 @@
         <p>{{_('Start and end date of the time period in which this dataset is relevant for (re-)use in research. For start dat please choose the current year. If this dataset is relevant for others for a long period of time or indefinitely, you can leave the end date after the forward slash blank. Examples: if your dataset is relevant for 10 years starting 2016, please enter 2016/2026, if your dataset is relevant indefinitely or for a long but unknown time from 2016 onwards, please enter 2016/[blank].')}}</p>
       </div>
     </div>
-    <label class="control-label" for="tc_start">{{_('Start/End date')}}</label>
+    <label class="control-label" for="tc_start">{{_('Start/End')}}</label>
     <div class="controls">
-      <input id="tc_start" name="tc_start" placeholder="Please, pick a date" type="text" value="{{data.tc_start}}">
-      <input id="tc_end" name="tc_end" placeholder="Please, pick a date" type="text" value="{{data.tc_end}}">
+      <input id="tc_start" name="tc_start" placeholder="Please, pick a date" type="text" value="{{data.tc_start}}"><a id="clear_tc_start" class="btn btn-danger btn-xs">x</a>
+      <input id="tc_end" name="tc_end" placeholder="Please, pick a date" type="text" value="{{data.tc_end}}"><a id="clear_tc_end" class="btn btn-danger btn-xs">x</a>
       <p class="help-block">{{_('Start and finish date of relevance of dataset.')}}</p>
-
     </div>
   </div>
 
