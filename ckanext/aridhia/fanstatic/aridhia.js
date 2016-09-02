@@ -42,23 +42,23 @@
 
   $(document).ready(function () {
     $('#tc_start').datepicker({
-      dateFormat: 'yy-mm',
+      dateFormat: 'yy',
         changeDay: false,
-        changeMonth: true,
+        changeMonth: false,
         changeYear: true,
         showButtonPanel: true,
         onClose: function(dateText, inst) {
-            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth));
+            $(this).datepicker('setDate', new Date(inst.selectedYear,1 ,1));
         }
     });
     $('#tc_end').datepicker({
-      dateFormat: 'yy-mm',
+      dateFormat: 'yy',
         changeDay: false,
-        changeMonth: true,
+        changeMonth: false,
         changeYear: true,
         showButtonPanel: true,
         onClose: function(dateText, inst) {
-            $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth));
+            $(this).datepicker('setDate', new Date(inst.selectedYear, 1, 1));
         }
     });
 
