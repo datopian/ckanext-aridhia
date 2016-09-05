@@ -149,7 +149,7 @@
     <div class="ui-switch">
 
       <input type="checkbox" name="human_research" class="checkbox" id="human_research" value="{{data.human_research}}" {% if data.human_research == '1'%}checked="checked"{% endif %}>
-      <label class="label" for="human_research">
+             <label class="label" for="human_research">
         <span class="inner"></span>
         <span class="switch"></span>
       </label>
@@ -208,8 +208,14 @@
     </div>
     <label class="control-label" for="tc_start">{{_('Start/End')}}</label>
     <div class="controls">
-      <input id="tc_start" name="tc_start" placeholder="Please, pick a date" type="text" value="{{data.tc_start}}"><a id="clear_tc_start" class="btn btn-danger btn-xs">x</a>
-      <input id="tc_end" name="tc_end" placeholder="Please, pick a date" type="text" value="{{data.tc_end}}"><a id="clear_tc_end" class="btn btn-danger btn-xs">x</a>
+      <div class="input-append">
+        <input id="tc_start" name="tc_start" placeholder="Please, pick a date" type="text" value="{{data.tc_start}}">
+        <button id="clear_tc_start" class="btn btn-danger" type="button">x</button>
+      </div>
+      <div class="input-append">
+        <input id="tc_end" name="tc_end" placeholder="Please, pick a date" type="text" value="{{data.tc_end}}">
+        <button id="clear_tc_end" class="btn btn-danger" type="button">x</button>
+      </div>
       <p class="help-block">{{_('Start and finish date of relevance of dataset.')}}</p>
     </div>
   </div>
@@ -223,10 +229,10 @@
 <fieldset>
   <legend>{{_('Custom Fields')}}</legend>
   <div class="control-group-info">
-      <a href="#" class="control-group-info-toggle"></a>
-      <div class="control-group-info-content control-group-info-content-hidden">
-        <p>{{_('Custom fields custom text')}}</p>
-      </div>
+    <a href="#" class="control-group-info-toggle"></a>
+    <div class="control-group-info-content control-group-info-content-hidden">
+      <p>{{_('Custom fields custom text')}}</p>
+    </div>
   </div>
   {% snippet 'snippets/custom_form_fields.html', extras=data.extras, errors=errors, limit=3 %}
 </fieldset>
