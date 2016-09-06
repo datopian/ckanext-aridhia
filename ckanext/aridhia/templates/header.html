@@ -83,10 +83,11 @@
         {% endblock %}
 
       </hgroup>
-
       <ul class="unstyled pull-right language-switcher">
-        <li class="active">En</li>
-        <li><a href="#">Nl</a></li>
+        {% set current_url = request.environ.CKAN_CURRENT_URL %}
+        {% set current_lang = request.environ.CKAN_LANG %}
+        <li {% if current_lang == 'en' %}class="active"{% endif %}><a href="{% url_for current_url, locale='en' %}">EN</a></li>
+        <li {% if current_lang == 'nl' %}class="active"{% endif %}><a href="{% url_for current_url, locale='nl' %}" >NL</a></li>
       </ul>
     </div>
   </div>
