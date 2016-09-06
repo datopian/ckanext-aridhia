@@ -46,6 +46,7 @@
         changeDay: false,
         changeMonth: false,
         changeYear: true,
+        yearRange: '2006:2036',
         showButtonPanel: true,
         onClose: function(dateText, inst) {
             $(this).datepicker('setDate', new Date(inst.selectedYear,1 ,1));
@@ -55,6 +56,7 @@
       dateFormat: 'yy',
         changeDay: false,
         changeMonth: false,
+        yearRange: '2006:2036',
         changeYear: true,
         showButtonPanel: true,
         onClose: function(dateText, inst) {
