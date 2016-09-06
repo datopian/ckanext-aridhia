@@ -58,9 +58,9 @@
         <p>{{_('The contact email for the creator of the dataset')}}</p>
       </div>
     </div>
-    <label class="control-label" for="field-author-email">{{_('Creator Email')}}</label>
+    <label class="control-label" for="field-author-email"><span title="This field is required" class="control-required">*</span> {{_('Creator Email')}}</label>
     <div class="controls ">
-      <input id="field-author-email" type="email" name="author_email" value="{{data.author_email}}" placeholder="joe@example.com">
+      <input id="field-author-email" type="email" name="author_email" value="{{data.author_email}}" placeholder="joe@example.com" required>
       <p class="help-block">{{_('The contact email for the creator of the dataset')}}</p>
     </div>
   </div>
@@ -96,9 +96,9 @@
         <p>{{_('The contact email address of the dataset publisher.')}}</p>
       </div>
     </div>
-    <label class="control-label" for="field-maintainer-email">{{_('Publisher Email')}}</label>
+    <label class="control-label" for="field-maintainer-email"><span title="This field is required" class="control-required">*</span> {{_('Publisher Email')}}</label>
     <div class="controls ">
-      <input id="field-maintainer-email" type="email" name="maintainer_email" value="{{data.maintainer_email}}" placeholder="joe@example.com">
+      <input id="field-maintainer-email" type="email" name="maintainer_email" value="{{data.maintainer_email}}" placeholder="joe@example.com" required>
       <p class="help-block">{{_('The contact email for the publisher of the dataset.')}}</p>
     </div>
   </div>
