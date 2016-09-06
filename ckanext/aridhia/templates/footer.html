@@ -10,21 +10,26 @@
           {% endblock %}
         </ul>
         <ul class="unstyled">
+          <li><a href="http://portal.umcn.nl/organisatie/im/Pages/Datastewardship.aspx" target="_blank">{{ _('RTC Data Stewardship') }}</a></li>
+        </ul>
+        <ul class="unstyled">
           {% block footer_links_ckan %}
-          {% set api_url = 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version) %}
-          <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li>
+
           {% endblock %}
         </ul>
         {% endblock %}
       </div>
       <div class="span4">
         <ul class="unstyled">
-          <li><a href="http://www.okfn.org/">{{ _('Open Knowledge Foundation') }}</a></li>
+          <li><a href="http://www.okfn.org" target="_blank">{{ _('Open Knowledge Foundation') }}</a></li>
+          {% set api_url = 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version) %}
+          <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li>
         </ul>
       </div>
       <div class="span4 attribution">
         {% block footer_attribution %}
         <p>{% trans %}Powered by <a href="http://ckan.org">CKAN</a>{% endtrans %}</p>
+        <p>{% trans %}<a href="http://radboudumc.catalogue.rsrch.com/data/user/login">Admin</a>{% endtrans %}</p>
         {% endblock %}
       </div>
     </div>
