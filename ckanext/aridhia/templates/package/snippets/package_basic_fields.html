@@ -54,7 +54,7 @@
 
   {% block package_basic_fields_tags %}
   <div class="control-group-info">
-    <a href="#" class="control-group-info-toggle"></a>
+    <a class="control-group-info-toggle"></a>
     <div class="control-group-info-content control-group-info-content-hidden">
       <p>{{_('Subjects and related information about the dataset. These tags are used when people search for datasets in the catalogue, so the tags can help make your datasets findable. Please also review the list of pre-defined tags, and then define your own.')}}</p>
     </div>
@@ -69,7 +69,7 @@
     <label class="control-label" for="field-license"><span title="This field is required" class="control-required">*</span> {{ _("Rights") }}</label>
     <div class="controls">
       <div class="control-group-info">
-        <a href="#" class="control-group-info-toggle"></a>
+        <a class="control-group-info-toggle"></a>
         <div class="control-group-info-content control-group-info-content-hidden">
           <p>{{_('License and usage rights for the dataset. Please choose the option which applies to your dataset. [more explanation needed based on available options: explain most common options + link to creative commons website for more info]')}}</p>
         </div>
@@ -112,7 +112,7 @@
     {% set existing_org = data.owner_org or data.group_id %}
     <div class="control-group">
       <div class="control-group-info">
-        <a href="#" class="control-group-info-toggle"></a>
+        <a class="control-group-info-toggle"></a>
         <div class="control-group-info-content control-group-info-content-hidden">
           <p>{{_('Organization help text')}}</p>
         </div>
@@ -137,7 +137,7 @@
     {% block package_metadata_fields_visibility %}
     <div class="control-group">
       <div class="control-group-info">
-        <a href="#" class="control-group-info-toggle"></a>
+        <a class="control-group-info-toggle"></a>
         <div class="control-group-info-content control-group-info-content-hidden">
           <p>{{_('Visibility info text')}}</p>
         </div>
