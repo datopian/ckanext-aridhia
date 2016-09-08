@@ -8,6 +8,7 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IDatasetForm, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IRoutes)
     
     # IPackageController
     
@@ -20,7 +21,16 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         
         pkg_dict.update({'identifier': pkg_dict.get('id')})
         return pkg_dict
-    
+
+    # IRoutes
+
+    def before_map(self, map):
+        # map.redirect('/user/register', 'http://aridhia.com/register',
+        #              _redirect_code='301 Moved Permanently')
+        return map
+
+    def after_map(self, map):
+        return map
 
     # IDatasetForm
     
