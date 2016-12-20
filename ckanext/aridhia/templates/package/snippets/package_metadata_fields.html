@@ -209,14 +209,14 @@
     <label class="control-label" for="tc_start">{{_('Start/End')}}</label>
     <div class="controls">
       <div class="input-append">
-        <input id="tc_start" name="tc_start" placeholder="Please, pick a date" type="text" value="{{data.tc_start}}">
+        <input id="tc_start" name="tc_start" placeholder="Please, pick a year" type="number" value="{{data.tc_start}}" min="0" max="10000" pattern="[0-9]+">
         <button id="clear_tc_start" class="btn btn-danger" type="button">x</button>
       </div>
       <div class="input-append">
-        <input id="tc_end" name="tc_end" placeholder="Please, pick a date" type="text" value="{{data.tc_end}}">
+        <input id="tc_end" name="tc_end" placeholder="Please, pick a year" type="number" value="{{data.tc_end}}" min="0" max="10000" pattern="[0-9]+">
         <button id="clear_tc_end" class="btn btn-danger" type="button">x</button>
       </div>
-      <p class="help-block">{{_('Start and finish date of relevance of dataset.')}}</p>
+      <p class="help-block">{{_('Start and finish year of relevance of dataset.')}}</p>
     </div>
   </div>
 

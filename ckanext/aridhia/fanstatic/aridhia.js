@@ -41,28 +41,28 @@
   });
 
   $(document).ready(function () {
-    $('#tc_start').datepicker({
-      dateFormat: 'yy',
-        changeDay: false,
-        changeMonth: false,
-        changeYear: true,
-        yearRange: '2006:2036',
-        showButtonPanel: true,
-        onClose: function(dateText, inst) {
-            $(this).datepicker('setDate', new Date(inst.selectedYear,1 ,1));
-        }
-    });
-    $('#tc_end').datepicker({
-      dateFormat: 'yy',
-        changeDay: false,
-        changeMonth: false,
-        yearRange: '2006:2036',
-        changeYear: true,
-        showButtonPanel: true,
-        onClose: function(dateText, inst) {
-            $(this).datepicker('setDate', new Date(inst.selectedYear, 1, 1));
-        }
-    });
+    // $('#tc_start').datepicker({
+    //   dateFormat: 'yy',
+    //     changeDay: false,
+    //     changeMonth: false,
+    //     changeYear: false,
+    //     //yearRange: '2006:2036',
+    //     showButtonPanel: true,
+    //     onClose: function(dateText, inst) {
+    //         $(this).datepicker('setDate', new Date(inst.selectedYear,1 ,1));
+    //     }
+    // });
+    // $('#tc_end').datepicker({
+    //   dateFormat: 'yy',
+    //     changeDay: false,
+    //     changeMonth: false,
+    //     //yearRange: '2006:2036',
+    //     changeYear: false,
+    //     showButtonPanel: true,
+    //     onClose: function(dateText, inst) {
+    //         $(this).datepicker('setDate', new Date(inst.selectedYear, 1, 1));
+    //     }
+    // });
 
     // Required for the info button for the fields
     controlGroupInfoToggle.hover(function (e) {
