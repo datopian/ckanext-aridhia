@@ -1,11 +1,16 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import ckanext.aridhia.helpers as _helpers
+import logging
+
+
+log = logging.getLogger(__name__)
 
 
 class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IPackageController, inherit=True)
+    plugins.implements(plugins.IResourceController, inherit=True)
     plugins.implements(plugins.IDatasetForm, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IRoutes)
@@ -42,6 +47,7 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
                     toolkit.get_converter('convert_to_extras')]
         
         schema.update({
+            'restricted': defaults,
             'number_of_participants':defaults,
             'human_research':defaults,
             'number_of_records': defaults,
@@ -59,6 +65,7 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
                     toolkit.get_converter('convert_to_extras')]
         
         schema.update({
+            'restricted': defaults,
             'number_of_participants':defaults,
             'human_research':defaults,
             'number_of_records': defaults,
@@ -77,6 +84,7 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
                     toolkit.get_validator('ignore_missing')]
         
         schema.update({
+            'restricted': defaults,
             'number_of_participants':defaults,
             'human_research':defaults,
             'number_of_records': defaults,
@@ -115,3 +123,17 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             'get_package_version':
                 _helpers.get_package_version
         }
+
+
+    def before_search(self, search_params):
+        fq = search_params.get("fq", "")
+        if not toolkit.c.user:
+            # There is no user logged in, hide the restricted datasets
+            fq = fq + " -extras_restricted:1"
+        search_params["fq"] = fq
+        return search_params
+
+    def before_view(self, package):
+        if not toolkit.c.user and package.get("restricted", 0) == "1":
+            raise toolkit.NotAuthorized
+        return package

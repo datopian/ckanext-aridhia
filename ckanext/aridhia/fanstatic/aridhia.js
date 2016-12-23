@@ -15,6 +15,18 @@
     }
 
   });
+  $('#restricted').on('click', function () {
+
+    if($('#restricted').is(':checked')){
+      $('#restricted').val(1);
+      $('#restricted').attr('checked', 'checked');
+    }
+    else{
+      $('#restricted').val(0);
+      $('#restricted').removeAttr('checked');
+    }
+
+  });
   $('#clear_tc_start').on('click', function () {
     $('#tc_start').val('');
   });

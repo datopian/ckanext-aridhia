@@ -11,6 +11,28 @@
 
 {% block package_metadata_fields %}
 
+{% block package_metadata_fields_visibility %}
+<div class="control-group control-group-slider">
+  <div class="control-group-info">
+    <a class="control-group-info-toggle"></a>
+    <div class="control-group-info-content control-group-info-content-hidden">
+      <p>{{_('Dataset is searchable and browseable by all registered, logged-in users - only if it\'s set as Public')}}</p>
+    </div>
+  </div>
+  <label class="control-label" for="field_range">{{_('Radboud UMC Restricted')}}</label>
+  <div class="controls">
+    <div class="ui-switch">
+      <input type="checkbox" name="restricted" class="checkbox" id="restricted" value="{{data.restricted}}" {% if data.restricted == '1'%}checked="checked"{% endif %}>
+             <label class="label" for="restricted">
+        <span class="inner"></span>
+        <span class="switch"></span>
+      </label>
+    </div>
+    <p class="help-block"></p>
+  </div>
+</div>
+{% endblock %}
+
 {% block package_metadata_fields_url %}
 
 <div class="control-group">
