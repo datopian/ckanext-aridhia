@@ -14,6 +14,7 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IDatasetForm, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IRoutes)
+    plugins.implements(plugins.IActions)
     
     # IPackageController
     
@@ -113,7 +114,8 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'aridhia')
-        
+
+
     def get_helpers(self):
         return {
             'language_options':
@@ -125,15 +127,30 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
         }
 
 
+    def after_show(self, context, package_dict):
+        # Takes care of package_show and resource_show
+        package = context.get("package", None)
+        if package and package.extras.get("restricted", 0) == "1" and not toolkit.c.user:
+            raise toolkit.NotAuthorized
+        return package_dict
+
     def before_search(self, search_params):
+        # This takes care of package search
         fq = search_params.get("fq", "")
         if not toolkit.c.user:
             # There is no user logged in, hide the restricted datasets
             fq = fq + " -extras_restricted:1"
         search_params["fq"] = fq
+        search_params["include_private"] = True
         return search_params
 
-    def before_view(self, package):
-        if not toolkit.c.user and package.get("restricted", 0) == "1":
-            raise toolkit.NotAuthorized
-        return package
+    def get_actions(self):
+        from ckanext.aridhia.actions import (package_autocomplete,
+            package_search, resource_search,)
+        # We're overloading few actions to get the benefits of private and
+        # restricted browsing and searching
+        return {
+            'package_autocomplete': package_autocomplete,
+            'package_search': package_search,
+            'resource_search': resource_search
+        }
