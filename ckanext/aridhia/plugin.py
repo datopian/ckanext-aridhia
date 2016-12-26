@@ -7,6 +7,20 @@ import logging
 log = logging.getLogger(__name__)
 
 
+def tc_end_validator(key, flattened_data, errors, context):
+    tc_end = flattened_data.get(key, None)
+    tc_start = flattened_data.get(("tc_start",), None)
+    if bool(tc_end) != bool(tc_start):
+        raise toolkit.Invalid("Please fill in both start and end dates.")
+    if tc_start and tc_end:
+        try:
+            if int(tc_start) > int(tc_end):
+                raise toolkit.Invalid("End date can not be earlier than start date.")
+        except (TypeError, ValueError,) as e:
+            raise toolkit.Invalid("Start date and end date must be numbers.")
+    return flattened_data
+
+
 class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IPackageController, inherit=True)
@@ -55,7 +69,11 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             'spatial_coverage': defaults,
             'language': defaults,
             'tc_start': defaults,
-            'tc_end': defaults,
+            'tc_end': [
+                toolkit.get_validator('ignore_missing'),
+                toolkit.get_converter('convert_to_extras'),
+                tc_end_validator
+            ],
             'logo': defaults
         })
         return schema
@@ -73,7 +91,11 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
             'spatial_coverage': defaults,
             'language': defaults,
             'tc_start': defaults,
-            'tc_end': defaults,
+            'tc_end': [
+                toolkit.get_validator('ignore_missing'),
+                toolkit.get_converter('convert_to_extras'),
+                tc_end_validator
+            ],
             'logo': defaults
         })
         return schema
