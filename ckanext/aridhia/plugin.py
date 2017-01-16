@@ -10,7 +10,7 @@ log = logging.getLogger(__name__)
 def tc_end_validator(key, flattened_data, errors, context):
     tc_end = flattened_data.get(key, None)
     tc_start = flattened_data.get(("tc_start",), None)
-    if bool(tc_end) != bool(tc_start):
+    if bool(tc_end) and not bool(tc_start):
         raise toolkit.Invalid("Please fill in both start and end dates.")
     if tc_start and tc_end:
         try:
