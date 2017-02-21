@@ -168,11 +168,12 @@ class AridhiaPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
 
     def get_actions(self):
         from ckanext.aridhia.actions import (package_autocomplete,
-            package_search, resource_search,)
+            package_search, resource_search, user_list)
         # We're overloading few actions to get the benefits of private and
         # restricted browsing and searching
         return {
             'package_autocomplete': package_autocomplete,
             'package_search': package_search,
-            'resource_search': resource_search
+            'resource_search': resource_search,
+            'user_list': user_list
         }
