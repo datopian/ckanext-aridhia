@@ -379,3 +379,17 @@ def resource_search(context, data_dict):
 
     return {'count': count,
             'results': results}
+
+
+@logic.side_effect_free
+def user_list(context, data_dict):
+    user = context.get('user', None)
+    q = model.Session.query(model.User).filter(model.User.id=='')
+    if user in (None, ''):
+        return q
+
+    user = model.User.get(user)
+    if user.sysadmin:
+        return logic.action.get.user_list(context, data_dict)
+
+    return q
